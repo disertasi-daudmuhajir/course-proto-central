@@ -8,6 +8,7 @@ option java_package = "com.course.central.proto.hello";
 
 message SayHelloRequest {
   string name = 1;
+  int32 age = 2;
 }
 
 message SayHelloResponse {
