@@ -2,13 +2,11 @@ syntax = "proto3";
 
 package hello.v1;
 
-import "google/api/annotations.proto";
-
 option java_package = "com.course.central.proto.hello";
 
 message SayHelloRequest {
   string name = 1;
-  int32 age = 2;
+  uint32 age = 16;
 }
 
 message SayHelloResponse {
@@ -16,14 +14,8 @@ message SayHelloResponse {
 }
 
 service HelloService {
-  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {
-    option (google.api.http) = {
-      post: "/hello/v1/say_hello"
-      body: "*"
-    };
-  }
-
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
   rpc SayManyHellos(SayHelloRequest) returns (stream SayHelloResponse) {}
-  rpc SayHelloToEveryone(stream SayHelloRequest) returns (SayHelloResponse) {}
+  rpc SayHelloToEveryone(stream SayHelloRequest) returns (stream SayHelloResponse) {}
   rpc SayHelloContinuous(stream SayHelloRequest) returns (stream SayHelloResponse) {}
 }
