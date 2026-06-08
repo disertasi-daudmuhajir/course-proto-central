@@ -8,7 +8,6 @@ option java_package = "com.course.central.proto.hello";
 
 message SayHelloRequest {
   string name = 1;
-  string test = 2;
 }
 
 message SayHelloResponse {
